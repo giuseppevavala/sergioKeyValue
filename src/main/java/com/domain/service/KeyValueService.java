@@ -14,12 +14,34 @@ public class KeyValueService {
     @Autowired
     private KeyValueDAO keyValueDAO;
 
-	public void addKeyValue(KeyValuePOJO elem) {
-		keyValueDAO.addObject(elem);		
-	}
 
 	public List<KeyValuePOJO> getAllelements() {
 		return keyValueDAO.getAll();
+	}
+	
+	public KeyValuePOJO getFromKey(String key) {
+		return keyValueDAO.getObjWithLikeCondition("key", key);
+	}
+
+	public void update(KeyValuePOJO elem) {
+		keyValueDAO.update(elem);		
+	}
+	
+	public void addKeyValue(KeyValuePOJO elem) {
+		keyValueDAO.addObject(elem);		
+	}
+	
+	public void saveOrUpdate (KeyValuePOJO elem)
+	{
+		KeyValuePOJO existingElem = null;
+		
+		existingElem = getFromKey(elem.getKey());
+		if (existingElem == null)
+			addKeyValue (elem);
+		else{
+			existingElem.setValue(elem.getValue());
+			update(existingElem);
+		}
 	}
     
     

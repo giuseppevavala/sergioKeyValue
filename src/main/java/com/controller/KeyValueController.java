@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.domain.POJO.KeyValuePOJO;
+import com.domain.POJO.ResponsePOJO;
 import com.domain.service.KeyValueService;
 
 @Controller
@@ -34,7 +35,7 @@ public class KeyValueController{
 		   @RequestBody List<KeyValuePOJO> array ) 
    {
 	   for (KeyValuePOJO elem : array) 
-		   keyValueService.addKeyValue (elem);
+		   keyValueService.saveOrUpdate(elem);
 		
 	   logger.info("ADD: " + array);
 	   return "Elementi aggiunti con successo";
@@ -44,17 +45,19 @@ public class KeyValueController{
    public @ResponseBody String addKeyValue(
 		   @RequestBody KeyValuePOJO elem ) 
    {
-	   keyValueService.addKeyValue (elem);
-	   
+	   keyValueService.saveOrUpdate(elem);	   
 	   logger.info("ADD: " + elem);
 	   return "Elemento aggiunto con successo";
    }
    
    @RequestMapping(value="/keyvalues", method=RequestMethod.GET)
-   public @ResponseBody List<KeyValuePOJO> getUser() {
+   public @ResponseBody ResponsePOJO getUser() {	   
+	   ResponsePOJO resp = new ResponsePOJO();
+	   
 	   logger.info("get request");
-	   return keyValueService.getAllelements();
+	   resp.setContent(keyValueService.getAllelements());
+	   resp.setStatus("ok");
+	   return resp;
    }
-      
   
 }

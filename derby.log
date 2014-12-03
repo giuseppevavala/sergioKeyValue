@@ -1,12 +1,12 @@
 ----------------------------------------------------------------
-Tue Dec 02 16:08:09 CET 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014a-0b8b-56eb-0000078b9408 
+Wed Dec 03 11:53:32 CET 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014a-0fc8-992d-000009270d78 
 on database directory /home/giuseppe/workspace/sergio/test with class loader WebappClassLoader
   context: /base
   delegate: false
   repositories:
 ----------> Parent Classloader:
-ClassRealm[plugin>org.codehaus.mojo:tomcat-maven-plugin:1.1, parent: sun.misc.Launcher$AppClassLoader@4aad3ba4]
+ClassRealm[plugin>org.codehaus.mojo:tomcat-maven-plugin:1.1, parent: sun.misc.Launcher$AppClassLoader@3326b249]
  
 Loaded from file:/home/giuseppe/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
 java.vendor=Sun Microsystems Inc.
